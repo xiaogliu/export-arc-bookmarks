@@ -1,6 +1,6 @@
 let arcBookmarksHtml = '';
 
-const processItem = (id, items) => {
+const processItem = (id, items, isTopApp = false) => {
     const item = items.find(item => item.id === id);
     if (!item) {
         console.error(`No item found with id: ${id}`);
@@ -8,7 +8,8 @@ const processItem = (id, items) => {
     }
 
     if (item.childrenIds && item.childrenIds.length > 0) {
-        return `<DT><H3>${(item.title === null && item.parentID === null) ? 'Pinned bookmarks' : item.title}</H3><DL><p>` +
+        const customTitle = isTopApp ? 'Top Apps' : 'Pinned bookmarks';
+        return `<DT><H3>${(item.title === null && item.parentID === null) ? customTitle : item.title}</H3><DL><p>` +
             item.childrenIds.map(childId => processItem(childId, items)).join('') +
             `</DL><p>`;
     }
@@ -20,8 +21,14 @@ const processItem = (id, items) => {
     return '';
 }
 
-const convertToBookmarkFormat = (space, items) => {
-    const result = space
+const convertToBookmarkFormat = (sidebar) => {
+    const topApps = sidebar.containers[1].topAppsContainerIDs;
+    const spaces = sidebar.containers[1].spaces;
+    const items = sidebar.containers[1].items;
+
+    const topAppsResult = processItem(topApps[1], items, true);
+    
+    const pinnedBookmarksResult = spaces
         .filter(spaceItem => spaceItem.containerIDs)
         .map(spaceItem => {
             const containerContent = spaceItem.containerIDs
@@ -31,6 +38,8 @@ const convertToBookmarkFormat = (space, items) => {
             return `<DT><H3>${spaceItem.title} - Space</H3><DL><p>${containerContent}</DL><p>`;
         })
         .join('');
+
+    const result = topAppsResult + pinnedBookmarksResult;
 
     return `
     <!DOCTYPE NETSCAPE-Bookmark-file-1>
@@ -73,7 +82,7 @@ document.getElementById('jsonFile').addEventListener('change', function() {
         setTimeout(() => {
             try {
                 const arcBookmarks = JSON.parse(this.result);
-                arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar.containers[1].spaces, arcBookmarks.sidebar.containers[1].items);
+                arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar);
                 downloadBtn.style.display = 'block';
                 statusElement.innerText = '处理成功, arcBookmarksHtml.html';
             } catch(err) {
