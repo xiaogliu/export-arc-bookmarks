@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Export Arc Browser Bookmarks</title>
     <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to right, #ff9966, #ff5e62);
-            font-family: Arial, sans-serif;
-        }
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #ff9966, #ff5e62);
+        font-family: Arial, sans-serif;
+      }
 
-        #jsonFile {
-            margin-right: 20px;
-        }
+      #jsonFile {
+        margin-right: 20px;
+      }
 
-        #downloadBtn, #jsonFile {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      #downloadBtn,
+      #jsonFile {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        #downloadBtn {
-            display: none;
-            background-color: #4CAF50;
-            color: white;
-        }
+      #downloadBtn {
+        display: none;
+        background-color: #4caf50;
+        color: white;
+      }
 
-        #error {
-            color: red;
-            margin-top: 20px;
-        }
-        .custom-file-upload {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      #error {
+        color: red;
+        margin-top: 20px;
+      }
+      .custom-file-upload {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        .custom-file-upload:hover {
-            background-color: #45a049;
-        }
-        
-        .button {
-          width: 126px;
-          height: 40px;
-          margin: 4px;
-        }
+      .custom-file-upload:hover {
+        background-color: #45a049;
+      }
+
+      .button {
+        width: 126px;
+        height: 40px;
+        margin: 4px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div>
       <label for="jsonFile" class="custom-file-upload button">
         Choose File
       </label>
-      <input type="file" id="jsonFile" accept=".json" style="display: none;">
+      <input type="file" id="jsonFile" accept=".json" style="display: none" />
     </div>
 
     <button id="downloadBtn" class="button">下载</button>
     <div id="status"></div>
 
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
