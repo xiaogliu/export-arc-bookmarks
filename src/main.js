@@ -3,12 +3,13 @@ let arcBookmarksHtml = "";
 const processItem = (id, items, isTopApp = false) => {
   const item = items.find((item) => item.id === id);
   if (!item) {
-    console.error(`No item found with id: ${id}`);
+    console.log(`No item found with id: ${id}`);
     return "";
   }
 
   // Skip top apps if it's empty
   if (isTopApp && item.childrenIds.length === 0) {
+    console.log("No top app bookmarks found");
     return "";
   }
 
@@ -30,12 +31,25 @@ const processItem = (id, items, isTopApp = false) => {
   return "";
 };
 
-const convertToBookmarkFormat = (sidebar) => {
-  const topApps = sidebar.containers[1].topAppsContainerIDs;
-  const spaces = sidebar.containers[1].spaces;
-  const items = sidebar.containers[1].items;
+// Function to find the container with items and spaces
+const findContainerWithItemsAndSpaces = (containers) => {
+  return containers.find((container) => container.items && container.spaces);
+};
 
-  const topAppsResult = processItem(topApps[1], items, true);
+const convertToBookmarkFormat = (sidebar) => {
+  const container = findContainerWithItemsAndSpaces(sidebar.containers);
+  if (!container) {
+    console.error("No container found with items and spaces");
+    return "";
+  }
+
+  const { topAppsContainerIDs, spaces, items } = container;
+
+  const topAppsResult = processItem(
+    topAppsContainerIDs.find((item) => typeof item === "string"),
+    items,
+    true
+  );
 
   const pinnedBookmarksResult = spaces
     .filter((spaceItem) => spaceItem.containerIDs)

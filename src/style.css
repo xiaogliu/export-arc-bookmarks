@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  font-family: Arial, sans-serif;
+}
+
+#jsonFile {
+  display: none;
+  margin-right: 20px;
+}
+
+#downloadBtn,
+#jsonFile {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#downloadBtn {
+  display: none;
+  background-color: #4caf50;
+  color: white;
+}
+
+#error {
+  color: red;
+  margin-top: 20px;
+}
+.custom-file-upload {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  background-color: #45a049;
+}
+
+.button {
+  width: 126px;
+  height: 40px;
+  margin: 4px;
+}
