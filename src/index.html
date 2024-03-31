@@ -8,16 +8,29 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="zh">中文</option>
+      <!-- Add more options for other languages as needed -->
+    </select>
+
     <div>
-      <label for="jsonFile" class="custom-file-upload button">
-        Choose File
+      <label
+        for="jsonFile"
+        class="custom-file-upload button"
+        data-i18n="chooseFile"
+      >
+        <!-- Choose File -->
       </label>
       <input type="file" id="jsonFile" accept=".json" />
     </div>
 
-    <button id="downloadBtn" class="button">下载</button>
+    <button id="downloadBtn" class="button" data-i18n="download">
+      <!-- 下载 -->
+    </button>
     <div id="status"></div>
 
     <script src="./main.js"></script>
+    <script src="./i18n.js"></script>
   </body>
 </html>
