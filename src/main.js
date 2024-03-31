@@ -8,13 +8,13 @@ const processItem = (id, items) => {
     }
 
     if (item.childrenIds && item.childrenIds.length > 0) {
-        return `<DT><H3>${item.title}</H3><DL><p>` +
+        return `<DT><H3>${(item.title === null && item.parentID === null) ? 'Pinned bookmarks' : item.title}</H3><DL><p>` +
             item.childrenIds.map(childId => processItem(childId, items)).join('') +
             `</DL><p>`;
     }
     
     if (item.childrenIds && item.childrenIds.length === 0 && item.data.tab) {
-        return `<DT><A HREF="${item.data.tab.savedURL}">${item.data.tab.savedTitle}</A></DT>`;
+        return `<DT><A HREF="${item.data.tab.savedURL}">${item.data.tab.savedTitle}</A>`;
     }
 
     return '';
@@ -28,7 +28,7 @@ const convertToBookmarkFormat = (space, items) => {
                 .slice(spaceItem.containerIDs.indexOf('pinned') + 1, spaceItem.containerIDs.indexOf('pinned') + 2)
                 .map(id => processItem(id, items))
                 .join('');
-            return `<DT><H3>${spaceItem.title}</H3></DT>${containerContent}`;
+            return `<DT><H3>${spaceItem.title} - Space</H3><DL><p>${containerContent}</DL><p>`;
         })
         .join('');
 
@@ -36,7 +36,7 @@ const convertToBookmarkFormat = (space, items) => {
     <!DOCTYPE NETSCAPE-Bookmark-file-1>
         <HTML>
         <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-        <Title>Bookmarks</Title>
+        <Title>Arc Bookmarks</Title>
         ${result}
         </HTML>
     `;
