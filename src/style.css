@@ -168,5 +168,6 @@ img {
 .contact {
   display: flex;
   justify-content: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+  font-size: 12px;
 }
