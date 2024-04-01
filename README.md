@@ -16,7 +16,7 @@ Arc browser
 
 ![ArcProfilePath](./images/ArcProfilePath.png)
 
-3. Navigate to the Arc browser folder via Finder: `/Users/vincentliu/Library/Application Support/Arc`
+3. Navigate to the Arc browser folder via Finder: such as `/Users/vincentliu/Library/Application Support/Arc`
 
 ![ArcProfilePath](./images/ArcStorageSidebar.png)
 
