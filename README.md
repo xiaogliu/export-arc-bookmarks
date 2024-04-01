@@ -10,7 +10,7 @@ Find `StorableSidebar.json` file
 
 2. Find the `Profile` directory,
 
-![ArcProfilePath]('./images/ArcProfilePath.png')
+![ArcProfilePath](./images/ArcProfilePath.png)
 
 3. And then open Finder and go to the folder: `~/Library/Application Support/Arc`
 
