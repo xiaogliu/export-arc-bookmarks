@@ -2,13 +2,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
   background: #e0ecf3;
   font-family: Arial, sans-serif;
 }
 
-label, button, select, option, div, input, p, header, main {
+label, button, select, option, div, input, p, header, main, h3 {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -41,6 +40,7 @@ header {
 
 main {
   width: 100%;
+  margin-top: 90px;
 }
 
 #jsonFile,
@@ -58,14 +58,19 @@ main {
 }
 
 .customFileUpload {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 150px;
+  max-width: 600px;
+  font-size: 20px;
+  border-radius: 10px;
   cursor: pointer;
   background-color: #4caf50;
   color: white;
   transition: background-color 0.3s ease;
+  box-shadow: 0px 5px 16px -2px #4caf50;
 }
 
 .customFileUpload:hover {
@@ -73,9 +78,17 @@ main {
 }
 
 .customFileUploadContainer {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.declaration {
+  position: absolute;
+  bottom: 30px;
+  font-size: 12px;
+  color: #38404b;
 }
 
 #downloadBtnAndDivider {
@@ -127,4 +140,35 @@ main {
 #error {
   color: red;
   margin-top: 20px;
+}
+
+.usageOutArea {
+  margin: 30px 0;
+  padding: 30px 0;
+  background-color: #eee;
+}
+
+.usageContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 600px;
+  color: #38404b;
+}
+
+.usageStep {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #38404b;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
 }
