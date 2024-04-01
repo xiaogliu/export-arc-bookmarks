@@ -18,6 +18,8 @@ Find `StorableSidebar.json` file
 
 5. Go to https://xiaogliu.github.io/export-arc-bookmarks and upload your Arc `StorableSidebar.json` file and you can get `arcBookmarks.html` which can be imported to Chrome, Edge, Safari, Firefox, etc browsers
 
+![ArcProfilePath](./images/ArcBookmarksVSFirefoxBookmarks.png)
+
 ## Which versions have verified?
 
 ### MacOS
