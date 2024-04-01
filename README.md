@@ -6,17 +6,17 @@ You can use this project to export Arc browser bookmarks easily.
 
 Find `StorableSidebar.json` file
 
-1. Input `arc://version` in Arc address bar;
+1. Input `arc://version` in Arc address bar
 
-2. Find the `Profile` directory,
+2. Find the `Profile` directory
 
 ![ArcProfilePath](./images/ArcProfilePath.png)
 
 3. And then open Finder and go to the folder: `~/Library/Application Support/Arc`
 
-4. Copy `StorableSidebar.json` to somewhere that you can easily find.
+4. Copy `StorableSidebar.json` to somewhere that you can easily find
 
-5. Go to https://xiaogliu.github.io/export-arc-bookmarks and upload your Arc `StorableSidebar.json` file and you can get `arcBookmarks.html` which can be imported to Chrome, Edge, Safari, Firefox, etc browsers.
+5. Go to https://xiaogliu.github.io/export-arc-bookmarks and upload your Arc `StorableSidebar.json` file and you can get `arcBookmarks.html` which can be imported to Chrome, Edge, Safari, Firefox, etc browsers
 
 ## Which versions have verified?
 
