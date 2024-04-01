@@ -1,6 +1,6 @@
 let arcBookmarksHtml = "";
 // 当前的语言
-let currentLanguage = 'en';
+let currentLanguage = "en";
 const downloadBtnContainer = document.getElementById("downloadBtnContainer");
 
 // 存储翻译的对象
@@ -11,7 +11,7 @@ const translations = {
     processing: "Processing...",
     success: "✅ Processing successful: ",
     errorReadingFile: "Error reading file: ",
-    errorParsingJSON: "Error parsing JSON string: "
+    errorParsingJSON: "Error parsing JSON string: ",
   },
   zh: {
     chooseFile: "选择文件 📁",
@@ -19,7 +19,7 @@ const translations = {
     processing: "处理中...",
     success: "✅ 处理成功：",
     errorReadingFile: "读取文件错误：",
-    errorParsingJSON: "解析 JSON 字符串错误："
+    errorParsingJSON: "解析 JSON 字符串错误：",
   },
 };
 
@@ -37,11 +37,11 @@ document
     currentLanguage = this.value;
 
     // hide download button
-    downloadBtnContainer.style.display = "none";
+    downloadBtnContainer.style.opacity = 0;
   });
 
 // update JS translation
-const translate = key => translations[currentLanguage][key];
+const translate = (key) => translations[currentLanguage][key];
 
 window.addEventListener("load", function () {
   loadLanguage("en");
@@ -137,8 +137,14 @@ const download = (filename, text) => {
   document.body.removeChild(element);
 };
 
-document.getElementById("downloadBtnContainer").addEventListener("click", function () {
-  download("arcBookmarks.html", arcBookmarksHtml);
+document
+  .getElementById("downloadBtn")
+  .addEventListener("click", function () {
+    download("arcBookmarks.html", arcBookmarksHtml);
+  });
+
+document.getElementById("jsonFile").addEventListener("click", function () {
+  downloadBtnContainer.style.opacity = 0;
 });
 
 document.getElementById("jsonFile").addEventListener("change", function () {
@@ -153,36 +159,33 @@ document.getElementById("jsonFile").addEventListener("change", function () {
   const statusElement = document.getElementById("status");
 
   uploadBtn.disabled = true;
-  uploadBtnLabel.innerText = translate('processing');
-  uploadBtnLabel.style.backgroundColor = "gray";
-  downloadBtnContainer.style.display = "none";
+  uploadBtnLabel.innerText = translate("processing");
+  downloadBtnContainer.style.opacity = 0;
 
   const reader = new FileReader();
   reader.onload = function () {
-    setTimeout(() => {
-      try {
-        const arcBookmarks = JSON.parse(this.result);
-        arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar);
-        downloadBtnContainer.style.display = "block";
-        statusElement.innerText = translate('success') + " arcBookmarks.html";
-      } catch (err) {
-        console.error("Error parsing JSON string:", err);
-        statusElement.innerText = translate('errorParsingJSON') + err.message;
-      } finally {
-        uploadBtn.disabled = false;
-        uploadBtnLabel.innerText = translate('chooseFile');
-        uploadBtnLabel.style.backgroundColor = "#e0ecf3";
-        uploadBtn.value = ""; // Add this line to allow re-uploading the same file
-      }
-    }, 1000);
+    try {
+      const arcBookmarks = JSON.parse(this.result);
+      arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar);
+      downloadBtnContainer.style.opacity = 1;
+      statusElement.innerText = translate("success") + " arcBookmarks.html";
+    } catch (err) {
+      console.error("Error parsing JSON string:", err);
+      downloadBtnContainer.style.opacity = 1;
+      statusElement.innerText = translate("errorParsingJSON") + err.message;
+    } finally {
+      uploadBtn.disabled = false;
+      uploadBtnLabel.innerText = translate("chooseFile");
+      uploadBtn.value = ""; // Add this line to allow re-uploading the same file
+    }
   };
 
   reader.onerror = function () {
     console.error("Error reading file:", this.error);
-    statusElement.innerText = translate('errorReadingFile') + this.error.message;
+    statusElement.innerText =
+      translate("errorReadingFile") + this.error.message;
     uploadBtn.disabled = false;
-    uploadBtnLabel.innerText = translate('chooseFile');
-    uploadBtnLabel.style.backgroundColor = "#e0ecf3";
+    uploadBtnLabel.innerText = translate("chooseFile");
   };
 
   reader.readAsText(file);

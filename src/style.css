@@ -60,33 +60,39 @@ label, button, select, option, div, input {
 
 .customFileUpload {
   font-size: 16px;
-  font-weight: bold;
-  display: block;
-  margin: 0 auto;
-  width: 90%;
-  height: 120px;
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed white;
-  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease; /* Add this line */
 }
 
 .customFileUpload:hover {
-  background-color: #cbe9fb;
+  background-color: #388e3c;
 }
 
 .customFileUploadContainer {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#downloadBtnAndDivider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #downloadBtnContainer {
-  display: none;
+  opacity: 0;
   max-width: 600px;
   margin: 0 auto;
   width: 90%;
+  transition: opacity 0.3s ease; /* Add this line */
 }
 
 .downloadBtnArea {
