@@ -142,6 +142,11 @@ document.getElementById("downloadBtnContainer").addEventListener("click", functi
 });
 
 document.getElementById("jsonFile").addEventListener("change", function () {
+  if (this.files.length === 0) {
+    // User cancelled file selection
+    return;
+  }
+
   const file = this.files[0];
   const uploadBtn = document.getElementById("jsonFile");
   const uploadBtnLabel = document.querySelector('label[for="jsonFile"]');
@@ -167,6 +172,7 @@ document.getElementById("jsonFile").addEventListener("change", function () {
         uploadBtn.disabled = false;
         uploadBtnLabel.innerText = translate('chooseFile');
         uploadBtnLabel.style.backgroundColor = "#e0ecf3";
+        uploadBtn.value = ""; // Add this line to allow re-uploading the same file
       }
     }, 1000);
   };
