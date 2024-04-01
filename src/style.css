@@ -8,18 +8,19 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#jsonFile {
-  display: none;
-  margin-right: 20px;
-}
-
+#jsonFile,
 #downloadBtn,
-#jsonFile {
+.custom-file-upload {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+#jsonFile {
+  display: none;
+  margin-right: 20px;
 }
 
 #downloadBtn {
@@ -28,18 +29,9 @@ body {
   color: white;
 }
 
-#error {
-  color: red;
-  margin-top: 20px;
-}
 .custom-file-upload {
-  padding: 10px 20px;
-  font-size: 16px;
   background-color: #4caf50;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .custom-file-upload:hover {
@@ -50,4 +42,9 @@ body {
   width: 126px;
   height: 40px;
   margin: 4px;
+}
+
+#error {
+  color: red;
+  margin-top: 20px;
 }
