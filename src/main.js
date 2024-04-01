@@ -1,22 +1,23 @@
 let arcBookmarksHtml = "";
 // 当前的语言
 let currentLanguage = 'en';
+const downloadBtnContainer = document.getElementById("downloadBtnContainer");
 
 // 存储翻译的对象
 const translations = {
   en: {
-    chooseFile: "Choose File",
+    chooseFile: "Choose File 📁",
     download: "Download",
     processing: "Processing...",
-    success: "Processing successful: ",
+    success: "✅ Processing successful: ",
     errorReadingFile: "Error reading file: ",
     errorParsingJSON: "Error parsing JSON string: "
   },
   zh: {
-    chooseFile: "选择文件",
+    chooseFile: "选择文件 📁",
     download: "下载",
     processing: "处理中...",
-    success: "处理成功：",
+    success: "✅ 处理成功：",
     errorReadingFile: "读取文件错误：",
     errorParsingJSON: "解析 JSON 字符串错误："
   },
@@ -34,6 +35,9 @@ document
   .addEventListener("change", function () {
     loadLanguage(this.value);
     currentLanguage = this.value;
+
+    // hide download button
+    downloadBtnContainer.style.display = "none";
   });
 
 // update JS translation
@@ -133,21 +137,20 @@ const download = (filename, text) => {
   document.body.removeChild(element);
 };
 
-document.getElementById("downloadBtn").addEventListener("click", function () {
-  download("arcBookmarksHtml.html", arcBookmarksHtml);
+document.getElementById("downloadBtnContainer").addEventListener("click", function () {
+  download("arcBookmarks.html", arcBookmarksHtml);
 });
 
 document.getElementById("jsonFile").addEventListener("change", function () {
   const file = this.files[0];
   const uploadBtn = document.getElementById("jsonFile");
   const uploadBtnLabel = document.querySelector('label[for="jsonFile"]');
-  const downloadBtn = document.getElementById("downloadBtn");
   const statusElement = document.getElementById("status");
 
   uploadBtn.disabled = true;
   uploadBtnLabel.innerText = translate('processing');
   uploadBtnLabel.style.backgroundColor = "gray";
-  downloadBtn.style.display = "none";
+  downloadBtnContainer.style.display = "none";
 
   const reader = new FileReader();
   reader.onload = function () {
@@ -155,15 +158,15 @@ document.getElementById("jsonFile").addEventListener("change", function () {
       try {
         const arcBookmarks = JSON.parse(this.result);
         arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar);
-        downloadBtn.style.display = "block";
-        statusElement.innerText = translate('success') + " arcBookmarksHtml.html";
+        downloadBtnContainer.style.display = "block";
+        statusElement.innerText = translate('success') + " arcBookmarks.html";
       } catch (err) {
         console.error("Error parsing JSON string:", err);
         statusElement.innerText = translate('errorParsingJSON') + err.message;
       } finally {
         uploadBtn.disabled = false;
         uploadBtnLabel.innerText = translate('chooseFile');
-        uploadBtnLabel.style.backgroundColor = "#4CAF50";
+        uploadBtnLabel.style.backgroundColor = "#e0ecf3";
       }
     }, 1000);
   };
@@ -173,7 +176,7 @@ document.getElementById("jsonFile").addEventListener("change", function () {
     statusElement.innerText = translate('errorReadingFile') + this.error.message;
     uploadBtn.disabled = false;
     uploadBtnLabel.innerText = translate('chooseFile');
-    uploadBtnLabel.style.backgroundColor = "#4CAF50";
+    uploadBtnLabel.style.backgroundColor = "#e0ecf3";
   };
 
   reader.readAsText(file);

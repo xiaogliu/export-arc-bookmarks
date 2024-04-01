@@ -8,23 +8,34 @@
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <select id="languageSelect">
-      <option value="en">English</option>
-      <option value="zh">中文</option>
-      <!-- Add more options for other languages as needed -->
-    </select>
-
-    <div>
-      <label
-        for="jsonFile"
-        class="custom-file-upload button"
-        data-i18n="chooseFile"
-      ></label>
-      <input type="file" id="jsonFile" accept=".json" />
+    <div class="header">
+      <div class="select-wrapper">
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+          <!-- Add more options for other languages as needed -->
+        </select>
+      </div>
     </div>
+    <div class="main">
+      <div class="customFileUploadContainer">
+        <label
+          for="jsonFile"
+          class="customFileUpload"
+          data-i18n="chooseFile"
+        ></label>
+        <input type="file" id="jsonFile" accept=".json" />
+      </div>
+      
+      <div id="downloadBtnContainer">
+        <div class="downloadBtnArea">
+          <div id="status"></div>
+          <div class="divider"></div>
+          <button id="downloadBtn" class="button" data-i18n="download"></button>
+        </div>
+      </div>
 
-    <button id="downloadBtn" class="button" data-i18n="download"></button>
-    <div id="status"></div>
+    </div>
 
     <script src="./src/main.js"></script>
     <!-- <script src="./src/i18n.js"></script> -->

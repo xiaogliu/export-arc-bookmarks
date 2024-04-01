@@ -4,13 +4,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #ff9966, #ff5e62);
+  background: #e0ecf3;
   font-family: Arial, sans-serif;
+}
+label, button, select, option, div, input {
+  box-sizing: border-box;
+}
+
+.header {
+  position: fixed;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 3px 24px rgba(0,0,0,.08);
+  width: 100% !important;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#languageSelect {
+  padding: 10px 0;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  /* background-color: #4caf50; */
+  /* color: white; */
+}
+#languageSelect:focus-visible {
+  outline: none;
+}
+/* #languageSelect:hover {
+  background-color: #45a049;
+} */
+
+.main {
+  width: 100%;
 }
 
 #jsonFile,
-#downloadBtn,
-.custom-file-upload {
+#downloadBtn {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -23,25 +58,66 @@ body {
   margin-right: 20px;
 }
 
-#downloadBtn {
+.customFileUpload {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 120px;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.customFileUpload:hover {
+  background-color: #cbe9fb;
+}
+
+.customFileUploadContainer {
+  width: 100%;
+}
+
+#downloadBtnContainer {
   display: none;
-  background-color: #4caf50;
-  color: white;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 90%;
 }
 
-.custom-file-upload {
-  background-color: #4caf50;
-  color: white;
+.downloadBtnArea {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #40444f;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.custom-file-upload:hover {
-  background-color: #45a049;
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #5c6069;
+  margin: 20px 0;
+}
+
+#downloadBtn {
+  background-color: #4caf50;
+  color: white;
 }
 
 .button {
-  width: 126px;
   height: 40px;
   margin: 4px;
+}
+
+#status {
+  color: white;
 }
 
 #error {
