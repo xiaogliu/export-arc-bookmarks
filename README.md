@@ -1,15 +1,21 @@
-# export-arc-bookmarks
+# Export Arc browser bookmarks
 
-Export Arc browser bookmarks
+You can use this project to export Arc browser bookmarks easily.
 
-# Mac 目录
+# How to use?
 
-首先在 Arc 中输入 `arc://version`
+Find `StorableSidebar.json` file
 
-查找到 Profile 目录,
+1. Input `arc://version` in Arc address bar;
 
-饭后打开 Finder and go to folder:
+2. Find the `Profile` directory,
 
-`~/Library/Application Support/Arc/User Data/Default/`
+![ArcProfilePath]('./images/ArcProfilePath.png')
 
-下一步回到上上层的 Arc 文件夹中，找到 StorableSidebar.json 这个文件
+3. And then open Finder and go to the folder: `~/Library/Application Support/Arc`
+
+4. Copy `StorableSidebar.json` to somewhere that you can easily find.
+
+# Which versions have verified?
+
+- Version 1.36.0 (48035), Chromium Engine Version 123.0.6312.87

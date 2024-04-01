@@ -1,27 +1,30 @@
 body {
-  margin: 0;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  margin: 0;
   background: #e0ecf3;
   font-family: Arial, sans-serif;
 }
-label, button, select, option, div, input {
+
+label, button, select, option, div, input, p, header, main {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.header {
-  position: fixed;
-  background: #fff;
+header {
   position: fixed;
   top: 0;
   z-index: 50;
-  box-shadow: 0 3px 24px rgba(0,0,0,.08);
   width: 100% !important;
   padding: 8px 16px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 3px 24px rgba(0,0,0,.08);
 }
 
 #languageSelect {
@@ -30,17 +33,13 @@ label, button, select, option, div, input {
   border: none;
   border-radius: 5px;
   text-align: center;
-  /* background-color: #4caf50; */
-  /* color: white; */
 }
+
 #languageSelect:focus-visible {
   outline: none;
 }
-/* #languageSelect:hover {
-  background-color: #45a049;
-} */
 
-.main {
+main {
   width: 100%;
 }
 
@@ -59,14 +58,14 @@ label, button, select, option, div, input {
 }
 
 .customFileUpload {
-  font-size: 16px;
-  background-color: #4caf50;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
   display: inline-block;
   padding: 10px 20px;
-  transition: background-color 0.3s ease; /* Add this line */
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 .customFileUpload:hover {
@@ -74,42 +73,41 @@ label, button, select, option, div, input {
 }
 
 .customFileUploadContainer {
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 #downloadBtnAndDivider {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 
 #downloadBtnContainer {
-  opacity: 0;
+  display: none;
+  width: 90%;
   max-width: 600px;
   margin: 0 auto;
-  width: 90%;
-  transition: opacity 0.3s ease; /* Add this line */
 }
 
 .downloadBtnArea {
-  margin: 12px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  margin: 12px 0;
   background-color: #40444f;
   border-radius: 10px;
-  padding: 20px;
 }
 
 .divider {
   width: 100%;
   height: 1px;
-  background-color: #5c6069;
   margin: 20px 0;
+  background-color: #5c6069;
 }
 
 #downloadBtn {

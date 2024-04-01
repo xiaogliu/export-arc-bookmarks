@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <div class="header">
+    <header>
+      <div>
+        <p class="title" data-i18n="exportArcBookmarks"></p>
+      </div>
       <div class="select-wrapper">
         <select id="languageSelect">
           <option value="en">English</option>
@@ -16,8 +19,8 @@
           <!-- Add more options for other languages as needed -->
         </select>
       </div>
-    </div>
-    <div class="main">
+    </header>
+    <main>
       <div class="customFileUploadContainer">
         <label
           for="jsonFile"
@@ -36,8 +39,7 @@
           </div>
         </div>
       </div>
-
-    </div>
+    </main>
 
     <script src="./src/main.js"></script>
     <!-- <script src="./src/i18n.js"></script> -->

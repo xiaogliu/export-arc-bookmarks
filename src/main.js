@@ -1,25 +1,25 @@
 let arcBookmarksHtml = "";
-// 当前的语言
 let currentLanguage = "en";
-const downloadBtnContainer = document.getElementById("downloadBtnContainer");
+const downloadBtnContainer = document.querySelector("#downloadBtnContainer");
 
-// 存储翻译的对象
 const translations = {
   en: {
     chooseFile: "Choose File 📁",
     download: "Download",
     processing: "Processing...",
     success: "✅ Processing successful: ",
-    errorReadingFile: "Error reading file: ",
-    errorParsingJSON: "Error parsing JSON string: ",
+    errorReadingFile: "⚠️ Error reading file: ",
+    errorParsingJSON: "⚠️ Error parsing JSON string: ",
+    exportArcBookmarks: "Export Arc Bookmarks",
   },
   zh: {
     chooseFile: "选择文件 📁",
     download: "下载",
     processing: "处理中...",
     success: "✅ 处理成功：",
-    errorReadingFile: "读取文件错误：",
-    errorParsingJSON: "解析 JSON 字符串错误：",
+    errorReadingFile: "⚠️ 读取文件错误：",
+    errorParsingJSON: "⚠️ 解析 JSON 字符串错误：",
+    exportArcBookmarks: "导出 Arc 书签",
   },
 };
 
@@ -31,16 +31,13 @@ function loadLanguage(userLanguage) {
 }
 
 document
-  .getElementById("languageSelect")
+  .querySelector("#languageSelect")
   .addEventListener("change", function () {
     loadLanguage(this.value);
     currentLanguage = this.value;
-
-    // hide download button
-    downloadBtnContainer.style.opacity = 0;
+    downloadBtnContainer.style.display = 'none';
   });
 
-// update JS translation
 const translate = (key) => translations[currentLanguage][key];
 
 window.addEventListener("load", function () {
@@ -138,40 +135,44 @@ const download = (filename, text) => {
 };
 
 document
-  .getElementById("downloadBtn")
+  .querySelector("#downloadBtn")
   .addEventListener("click", function () {
     download("arcBookmarks.html", arcBookmarksHtml);
   });
 
-document.getElementById("jsonFile").addEventListener("click", function () {
-  downloadBtnContainer.style.opacity = 0;
+document.querySelector("#jsonFile").addEventListener("click", function () {
+  downloadBtnContainer.style.display = 'none';
 });
 
-document.getElementById("jsonFile").addEventListener("change", function () {
+document.querySelector("#jsonFile").addEventListener("change", function () {
   if (this.files.length === 0) {
     // User cancelled file selection
     return;
   }
 
   const file = this.files[0];
-  const uploadBtn = document.getElementById("jsonFile");
+  const uploadBtn = document.querySelector("#jsonFile");
   const uploadBtnLabel = document.querySelector('label[for="jsonFile"]');
-  const statusElement = document.getElementById("status");
+  const statusElement = document.querySelector("#status");
+  const downloadBtnAndDividerElement = document.querySelector("#downloadBtnAndDivider");
+  downloadBtnAndDividerElement.style.display = 'flex';
+
 
   uploadBtn.disabled = true;
   uploadBtnLabel.innerText = translate("processing");
-  downloadBtnContainer.style.opacity = 0;
+  downloadBtnContainer.style.display = 'none';
 
   const reader = new FileReader();
   reader.onload = function () {
     try {
       const arcBookmarks = JSON.parse(this.result);
       arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar);
-      downloadBtnContainer.style.opacity = 1;
+      downloadBtnContainer.style.display = 'block';
       statusElement.innerText = translate("success") + " arcBookmarks.html";
     } catch (err) {
       console.error("Error parsing JSON string:", err);
-      downloadBtnContainer.style.opacity = 1;
+      downloadBtnContainer.style.display = 'block';
+      downloadBtnAndDividerElement.style.display = 'none';
       statusElement.innerText = translate("errorParsingJSON") + err.message;
     } finally {
       uploadBtn.disabled = false;
@@ -186,6 +187,8 @@ document.getElementById("jsonFile").addEventListener("change", function () {
       translate("errorReadingFile") + this.error.message;
     uploadBtn.disabled = false;
     uploadBtnLabel.innerText = translate("chooseFile");
+    downloadBtnContainer.style.display = 'block';
+    downloadBtnAndDividerElement.style.display = 'none';
   };
 
   reader.readAsText(file);
