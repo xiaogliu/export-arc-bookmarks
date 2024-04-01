@@ -2,7 +2,7 @@
 
 You can use this project to export Arc browser bookmarks easily.
 
-# How to use?
+## How to use?
 
 Find `StorableSidebar.json` file
 
@@ -18,6 +18,16 @@ Find `StorableSidebar.json` file
 
 5. Go to https://xiaogliu.github.io/export-arc-bookmarks and upload your Arc `StorableSidebar.json` file and you can get `arcBookmarks.html` which can be imported to Chrome, Edge, Safari, Firefox, etc browsers.
 
-# Which versions have verified?
+## Which versions have verified?
+
+### MacOS
 
 - Version 1.36.0 (48035), Chromium Engine Version 123.0.6312.87
+
+## Declaration
+
+All processed Bookmarks are handled locally in your browser, and are not transmitted to any cloud server, please feel free to use.
+
+## License
+
+MIT
