@@ -1,4 +1,47 @@
 let arcBookmarksHtml = "";
+// 当前的语言
+let currentLanguage = 'en';
+
+// 存储翻译的对象
+const translations = {
+  en: {
+    chooseFile: "Choose File",
+    download: "Download",
+    processing: "Processing...",
+    success: "Processing successful: ",
+    errorReadingFile: "Error reading file: ",
+    errorParsingJSON: "Error parsing JSON string: "
+  },
+  zh: {
+    chooseFile: "选择文件",
+    download: "下载",
+    processing: "处理中...",
+    success: "处理成功：",
+    errorReadingFile: "读取文件错误：",
+    errorParsingJSON: "解析 JSON 字符串错误："
+  },
+};
+
+function loadLanguage(userLanguage) {
+  const translation = translations[userLanguage];
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    node.textContent = translation[node.getAttribute("data-i18n")];
+  });
+}
+
+document
+  .getElementById("languageSelect")
+  .addEventListener("change", function () {
+    loadLanguage(this.value);
+    currentLanguage = this.value;
+  });
+
+// update JS translation
+const translate = key => translations[currentLanguage][key];
+
+window.addEventListener("load", function () {
+  loadLanguage("en");
+});
 
 const processItem = (id, items, isTopApp = false) => {
   const item = items.find((item) => item.id === id);
@@ -102,7 +145,7 @@ document.getElementById("jsonFile").addEventListener("change", function () {
   const statusElement = document.getElementById("status");
 
   uploadBtn.disabled = true;
-  uploadBtnLabel.innerText = "处理中...";
+  uploadBtnLabel.innerText = translate('processing');
   uploadBtnLabel.style.backgroundColor = "gray";
   downloadBtn.style.display = "none";
 
@@ -113,13 +156,13 @@ document.getElementById("jsonFile").addEventListener("change", function () {
         const arcBookmarks = JSON.parse(this.result);
         arcBookmarksHtml = convertToBookmarkFormat(arcBookmarks.sidebar);
         downloadBtn.style.display = "block";
-        statusElement.innerText = "处理成功, arcBookmarksHtml.html";
+        statusElement.innerText = translate('success') + " arcBookmarksHtml.html";
       } catch (err) {
         console.error("Error parsing JSON string:", err);
-        statusElement.innerText = "Error parsing JSON string: " + err.message;
+        statusElement.innerText = translate('errorParsingJSON') + err.message;
       } finally {
         uploadBtn.disabled = false;
-        uploadBtnLabel.innerText = "Choose File";
+        uploadBtnLabel.innerText = translate('chooseFile');
         uploadBtnLabel.style.backgroundColor = "#4CAF50";
       }
     }, 1000);
@@ -127,9 +170,9 @@ document.getElementById("jsonFile").addEventListener("change", function () {
 
   reader.onerror = function () {
     console.error("Error reading file:", this.error);
-    statusElement.innerText = "Error reading file: " + this.error.message;
+    statusElement.innerText = translate('errorReadingFile') + this.error.message;
     uploadBtn.disabled = false;
-    uploadBtnLabel.innerText = "Choose File";
+    uploadBtnLabel.innerText = translate('chooseFile');
     uploadBtnLabel.style.backgroundColor = "#4CAF50";
   };
 
