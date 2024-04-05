@@ -26,11 +26,12 @@ Arc browser
 
 ![ArcProfilePath](./images/ArcBookmarksVSFirefoxBookmarks.png)
 
-## Which versions have verified?
+## Which versions have been verified?
 
 ### MacOS
 
 - Version 1.36.0 (48035), Chromium Engine Version 123.0.6312.87
+- Version 1.37.0 (48361), Chromium Engine Version 123.0.6312.106
 
 ## Declaration
 

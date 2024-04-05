@@ -18,6 +18,7 @@ const translations = {
     step04: "4. Copy `StorableSidebar.json` to somewhere that you can easily find",
     step05: "5. Click 'Choose File 📁' and upload your Arc 'StorableSidebar.json' file. Once done, you will receive an 'arcBookmarks.html' file. This is a standard bookmark file that can be imported into browsers such as Chrome, Edge, Safari, Firefox, etc.",
     declaration: "All Bookmarks are handled locally in your browser",
+    whichVersions: "Which versions have been verified?",
   },
   zh: {
     chooseFile: "选择文件 📁",
@@ -34,6 +35,7 @@ const translations = {
     step04: "4. 将 `StorableSidebar.json` 复制到你可以轻松找到的地方",
     step05: "5. 点击 '选择文件 📁' 并上传你的 Arc 'StorableSidebar.json' 文件。完成后，你将收到一个 'arcBookmarks.html' 文件。这是一个标准的书签文件，可以导入到 Chrome、Edge、Safari、Firefox 等浏览器中。",
     declaration: "所有的书签都在您的浏览器本地处理",
+    whichVersions: "已验证的版本有哪些？",
   },
 };
 

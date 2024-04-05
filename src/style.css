@@ -8,10 +8,11 @@ body {
   color: #38404b;
 }
 
-label, button, select, option, div, input, p, header, main, h3 {
+label, button, select, option, div, input, p, header, main, h3, ul, li {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 
 header {
@@ -120,7 +121,7 @@ main {
   width: 100%;
   height: 1px;
   margin: 20px 0;
-  background-color: #5c6069;
+  background-color: #7378846b;
 }
 
 #downloadBtn {
@@ -170,4 +171,21 @@ img {
   justify-content: center;
   padding-bottom: 20px;
   font-size: 12px;
+}
+
+.guideTitle {
+  margin: 20px 0 10px;
+}
+
+.osName {
+  font-weight: bold;
+}
+
+li {
+  margin-left: 20px;
+  padding: 10px 0;
+}
+
+h3 {
+  font-size: 16px;
 }
