@@ -88,14 +88,16 @@ const processItem = (id, items, isTopApp = false) => {
     return (
       `<DT><H3>${
         item.title === null && item.parentID === null ? customTitle : item.title
-      }</H3><DL><p>` +
-      item.childrenIds.map((childId) => processItem(childId, items)).join("") +
-      `</DL><p>`
+      }</H3>\n<DL><p>\n` +
+      item.childrenIds
+        .map((childId) => processItem(childId, items))
+        .join("\n") +
+      `\n</DL><p>\n`
     );
   }
 
   if (item.childrenIds && item.childrenIds.length === 0 && item.data.tab) {
-    return `<DT><A HREF="${item.data.tab.savedURL}">${item.data.tab.savedTitle}</A>`;
+    return `<DT><A HREF="${item.data.tab.savedURL}">${item.data.tab.savedTitle}</A></DT>\n`;
   }
 
   return "";
