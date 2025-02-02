@@ -16,9 +16,9 @@ const translations = {
     step02: "2. Press `⌘⇧G` in Finder to open `Go to the folder` dialog",
     step03:
       "3. Type `~/Library/Application Support/Arc/StorableSidebar.json` in Finder dialog",
-    step04: "4. Press `Enter` to locate the bookmark file.",
+    step04: "4. Press `Enter` to locate the bookmark file",
     step05:
-      "5. Press `Enter` again to select the `StorableSidebar.json` file. Once done, you will receive an `arcBookmarks.html` file. This is a standard bookmark file that can be imported into browsers such as Chrome, Edge, Safari, Firefox, etc.",
+      "5. Press `Enter` again to select the `StorableSidebar.json` file. Once done, you will receive an `arcBookmarks.html` file. This is a standard bookmark file that can be imported into browsers such as Chrome, Edge, Safari, Firefox, etc",
     troubleshot:
       "I only tested on macOS, if you are using Windows or Linux, you may need to find the bookmark file manually by input `arc://version` in the Arc address bar and find the bookmark data storage path by `Profile Path`",
     declaration: "All Bookmarks are handled locally in your browser",
@@ -40,9 +40,9 @@ const translations = {
       "3. 在 Finder 对话框中输入 `~/Library/Application Support/Arc/StorableSidebar.json`",
     step04: "4. 按 `Enter` 定位到书签文件",
     step05:
-      "5. 再次按 `Enter` 选择 `StorableSidebar.json` 文件。完成后，您将收到一个 `arcBookmarks.html` 文件。这是一个标准的书签文件，可以导入到 Chrome、Edge、Safari、Firefox 等浏览器中。",
+      "5. 再次按 `Enter` 选择 `StorableSidebar.json` 文件。完成后，您将收到一个 `arcBookmarks.html` 文件。这是一个标准的书签文件，可以导入到 Chrome、Edge、Safari、Firefox 等浏览器中",
     troubleshot:
-      "我只在 macOS 上进行了测试，如果您使用的是 Windows 或 Linux，您可能需要手动查找书签文件，方法是在 Arc 地址栏中输入 `arc://version`，然后通过 `Profile Path` 找到书签数据存储路径。",
+      "我只在 macOS 上进行了测试，如果您使用的是 Windows 或 Linux，您可能需要手动查找书签文件，方法是在 Arc 地址栏中输入 `arc://version`，然后通过 `Profile Path` 找到书签数据存储路径",
     declaration: "所有的书签都在您的浏览器本地处理",
     whichVersions: "已验证的版本有哪些？",
     warning: "⚠️ 警告",
