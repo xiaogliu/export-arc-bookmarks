@@ -22,7 +22,7 @@ const translations = {
     troubleshot:
       "I only tested on macOS, if you are using Windows or Linux, you may need to find the bookmark file manually by input `arc://version` in the Arc address bar and find the bookmark data storage path by `Profile Path`",
     declaration: "All Bookmarks are handled locally in your browser",
-    whichVersions: "Which versions have been verified?",
+    whichVersions: "Which versions have been verified? (Under MacOS)",
     warning: "⚠️ Warning",
   },
   zh: {
@@ -44,7 +44,7 @@ const translations = {
     troubleshot:
       "我只在 macOS 上进行了测试，如果您使用的是 Windows 或 Linux，您可能需要手动查找书签文件，方法是在 Arc 地址栏中输入 `arc://version`，然后通过 `Profile Path` 找到书签数据存储路径",
     declaration: "所有的书签都在您的浏览器本地处理",
-    whichVersions: "已验证的版本有哪些？",
+    whichVersions: "已验证的版本有哪些？(MacOS 下)",
     warning: "⚠️ 警告",
   },
 };

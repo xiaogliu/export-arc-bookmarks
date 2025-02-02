@@ -26,13 +26,25 @@ I only tested on macOS, if you are using Windows or Linux, you may need to find 
 
 ![ArcProfilePath](./images/ArcProfilePath.png)
 
-## Which versions have been verified?
+## Which versions have been verified? (Under MacOS)
 
-### MacOS
+#### Arc browser
 
 - Version 1.36.0 (48035), Chromium Engine Version 123.0.6312.87
 - Version 1.37.0 (48361), Chromium Engine Version 123.0.6312.106
 - Version 1.79.1 (58230), Chromium Engine Version 132.0.6834.160
+
+#### Chrome browser
+
+- Version 132.0.6834.160 (Official Build) (arm64)
+
+#### FireFox browser
+
+- 134.0.2 (aarch64)
+
+#### Brave browser
+
+- Version 1.74.51 Chromium: 132.0.6834.160 (Official Build) (arm64)
 
 ## Declaration
 
