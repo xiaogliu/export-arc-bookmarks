@@ -2,13 +2,18 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBY9ZN0W4F"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TBY9ZN0W4F"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-TBY9ZN0W4F');
+      gtag("config", "G-TBY9ZN0W4F");
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,13 +44,17 @@
         <input type="file" id="jsonFile" accept=".json" />
         <p class="declaration" data-i18n="declaration"></p>
       </div>
-      
+
       <div id="downloadBtnContainer">
         <div class="downloadBtnArea">
           <div id="status"></div>
           <div id="downloadBtnAndDivider">
             <div class="divider"></div>
-            <button id="downloadBtn" class="button" data-i18n="download"></button>
+            <button
+              id="downloadBtn"
+              class="button"
+              data-i18n="download"
+            ></button>
           </div>
         </div>
       </div>
@@ -54,23 +63,44 @@
           <h3 data-i18n="howToUse">How to Use</h3>
           <p class="usageStep" data-i18n="step01"></p>
           <p class="usageStep" data-i18n="step02"></p>
-          <img src="https://raw.githubusercontent.com/xiaogliu/export-arc-bookmarks/main/images/ArcProfilePath.png" alt="ArcProfilePath">
           <p class="usageStep" data-i18n="step03"></p>
-          <img src="https://raw.githubusercontent.com/xiaogliu/export-arc-bookmarks/main/images/ArcStorageSidebar.png" alt="ArcStorageSidebar">
           <p class="usageStep" data-i18n="step04"></p>
+          <img
+            src="https://raw.githubusercontent.com/xiaogliu/export-arc-bookmarks/main/images/FindBookmarkJsonFile.png"
+            alt="ExportedBookmarks"
+          />
           <p class="usageStep" data-i18n="step05"></p>
-          <img src="https://raw.githubusercontent.com/xiaogliu/export-arc-bookmarks/main/images/ArcBookmarksVSFirefoxBookmarks.png" alt="ExportedBookmarks">
+          <img
+            src="https://raw.githubusercontent.com/xiaogliu/export-arc-bookmarks/main/images/ArcBookmarksVSFirefoxBookmarks.png"
+            alt="ExportedBookmarks"
+          />
+          <h4 data-i18n="warning"></h4>
+          <p class="usageStep" data-i18n="troubleshot"></p>
+          <img
+            src="https://raw.githubusercontent.com/xiaogliu/export-arc-bookmarks/main/images/ArcProfilePath.png"
+            alt="ExportedBookmarks"
+          />
           <div class="divider"></div>
-          <h3 data-i18n="whichVersions" class="guideTitle">Which versions have been verified?</h3>
+          <h3 data-i18n="whichVersions" class="guideTitle"></h3>
           <ul>
             <p class="osName">Mac OS</p>
-            <li>Version 1.36.0 (48035), Chromium Engine Version 123.0.6312.87</li>
-            <li>Version 1.37.0 (48361), Chromium Engine Version 123.0.6312.106</li>
+            <li>
+              Version 1.36.0 (48035), Chromium Engine Version 123.0.6312.87
+            </li>
+            <li>
+              Version 1.37.0 (48361), Chromium Engine Version 123.0.6312.106
+            </li>
+            <li>
+              Version 1.79.1 (58230), Chromium Engine Version 132.0.6834.160
+            </li>
           </ul>
         </div>
       </div>
       <div class="contact">
-        <p>Find the source code in <a href="https://github.com/xiaogliu/export-arc-bookmarks">GitHub</a></p>
+        <p>
+          Find the source code in
+          <a href="https://github.com/xiaogliu/export-arc-bookmarks">GitHub</a>
+        </p>
       </div>
     </main>
     <script src="./src/main.js"></script>
