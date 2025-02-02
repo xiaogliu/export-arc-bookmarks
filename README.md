@@ -20,12 +20,6 @@ Arc browser
 6. Press `Enter` again to select the `StorableSidebar.json` file. Once done, you will receive an `arcBookmarks.html` file. This is a standard bookmark file that can be imported into browsers such as Chrome, Edge, Safari, Firefox, etc
    ![ArcBookmarksVSFirefoxBookmarks](./images/ArcBookmarksVSFirefoxBookmarks.png)
 
-#### ⚠️ Warning
-
-I only tested on macOS, if you are using Windows or Linux, you may need to find the bookmark file manually by input `arc://version` in the Arc address bar and find the bookmark data storage path by `Profile Path`"
-
-![ArcProfilePath](./images/ArcProfilePath.png)
-
 ## Which versions have been verified? (Under MacOS)
 
 #### Arc browser
@@ -34,17 +28,21 @@ I only tested on macOS, if you are using Windows or Linux, you may need to find 
 - Version 1.37.0 (48361), Chromium Engine Version 123.0.6312.106
 - Version 1.79.1 (58230), Chromium Engine Version 132.0.6834.160
 
-#### Chrome browser
-
-- Version 132.0.6834.160 (Official Build) (arm64)
-
-#### FireFox browser
+#### Firefox browser
 
 - 134.0.2 (aarch64)
 
-#### Brave browser
+## ⚠️ Warning
 
-- Version 1.74.51 Chromium: 132.0.6834.160 (Official Build) (arm64)
+1. I only tested on macOS, if you are using Windows or Linux, you may need to find the bookmark file manually by input `arc://version` in the Arc address bar and find the bookmark data storage path by `Profile Path`"
+   ![ArcProfilePath](./images/ArcProfilePath.png)
+
+2. I tested on 2025-02-02, Chrome/Safari seems only can import the first space. I won't spend too much time debugging for now. Because I tested that Firefox works normally, so you can do this:
+   a. Import the exported Arc bookmarks into Firefox
+   b. Export bookmarks through Firefox
+   c. Import the bookmarks exported by Firefox into your browser
+
+3. If you have a large number of bookmarks, it may cause the program to crash. Please try several times.
 
 ## Declaration
 
