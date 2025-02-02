@@ -26,8 +26,6 @@ I only tested on macOS, if you are using Windows or Linux, you may need to find 
 
 ![ArcProfilePath](./images/ArcProfilePath.png)
 
-1. Navigate to the Arc browser folder via Finder: such as `/Users/vincentliu/Library/Application Support/Arc`
-
 ## Which versions have been verified?
 
 ### MacOS
